@@ -21,22 +21,7 @@
   Example after:
   
   ```typescript
-  items.update(itemsArray => [itemsArray, …newItem]);
-  ```
-- The  `mutate` method was removed from the `WritableSignal` interface and completely
-  dropped from the public API surface. As an alternative please use the update method and
-  make immutable changes to the object.
-  
-  Example before:
-  
-  ```typescript
-  items.mutate(itemsArray => itemsArray.push(newItem));
-  ```
-  
-  Example after:
-  
-  ```typescript
-  items.update(itemsArray => [itemsArray, …newItem]);
+  items.update(itemsArray => [...itemsArray, newItem]);
   ```
 ### platform-browser
 - The `withNoDomReuse()` function was removed from the public API. If you need to disable hydration, you can exclude the `provideClientHydration()` call from provider list in your application (which would disable hydration features for the entire application) or use `ngSkipHydration` attribute to disable hydration for particular components. See this guide for additional information: https://angular.io/guide/hydration#how-to-skip-hydration-for-particular-components.
